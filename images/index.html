@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+              integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles/app.css">
+        <link rel="stylesheet" href="styles/custom.css">
+        <link rel="stylesheet" href="styles/theme.css">
+        
+        <script src="js/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
+        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>        
+        <script src="app/app.js"></script>
+    </head>
+    
+    <body ng-app="dashboard" style="padding-top:0px!important;padding-bottom:0px!important;">        
+    
+        <!-- header-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container tmo-container">
+                <div class="tmo-clearfix">
+                    <button class="navbar-toggler hidden-lg-up pull-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+                        &#9776;
+                    </button>
+                    <a class="navbar-brand logo" href="http://www.t-mobile.com/"><img src="t-mobile-logo.png" alt="T-Mobile" title="T-Mobile"></a>
+                </div>
+            </div>
+        </nav>
+        </header><!-- /.header --> 
+        
+        <!-- Start:Views loads here -->
+        <div class="content">
+            <div ng-view="">default content</div>
+        </div>
+        <!-- End:Views loads here -->
+        
+        <footer class="footer">
+            <nav class="navbar">
+                <div class="container tmo-container">
+                    <div class="tmo-clearfix">
+                        <div class="col-xs-6 col-md-7">
+                            <div class="pull-left">
+                                <span class="app-version text-xs-left"></span>
+                                <span class="tag tag-info">App version: 1.0.0</span>
+                                <span class="tag tag-info">API version: v1</span>
+                            </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-5 text-xs-right legal">© 2002-2017 T-MOBILE USA, INC.</div>
+                </div>
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+        </footer>
+    
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js"></script>
+        <script src="app/controllers/dashboard.controller.js"></script>
+        <script src="app/controllers/search.controller.js"></script>
+        <script src="app/directives/custompopover.directive.js"></script>
+        <script src="app/controllers/Hello.js"></script>
+        <script type="text/ng-template" id="popover.html"></script>
+        <script src="app/controllers/searchController.js"></script>
+        <script src="app/controllers/pagination.js"></script>
+    </body>    
+</html>

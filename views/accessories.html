@@ -1,0 +1,72 @@
+<div style="padding-top:20px;margin-left:300px" ng-init="getAccessories()">
+<form class="form-horizontal" name="feedbackForm" >
+    <div class="form-group">
+        <label for="searchItems" class="col-sm-2 control-label">Search Items</label>
+         <div class="col-sm-4">
+          <input type="text" class="form-control" id="searchItems" name="searchItems" placeholder="Search" ng-model="skuId" submit-required="true">
+          <!--<span ng-show="feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine" class="help-block">Your First name is required.</span>-->
+            </div>
+
+        <div class="buttons col-sm-2"><a class="btn btn-theme" ng-click="getAccessories()">Go</a></div>
+
+    </div>
+</form>
+</div>
+
+<div ng-if="noAccessories" class="text-center" style="color:#a1b1bc">No Results Found</div>
+<div class="content-area" ng-if="accesoryList.length >0" >
+    <!-- PAGE WITH SIDEBAR -->
+    <section class="page-section with-sidebar sub-page">
+        <div class="container">
+            <div class="row"> 
+                <!-- CONTENT -->
+                <div class="col-md-4 content" id="content" ng-repeat="accessory in accesoryList.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+                    <!-- Excursion Listing -->
+                    <div class="thumbnail no-border  no-padding thumbnail-ez-ezd clearfix">
+                        <div class="media">
+                            <a class="media-link" data-gal="prettyPhoto" href="http://54.174.162.177/assets/img/preview/cars/ez-370x220x5.jpg">
+                                <img src="{{accessory.picture}}" class="ez-thumbnail-photo" alt="">
+                                <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
+                            </a>
+                        </div>
+                        <div class="caption tmo-caption">
+
+                            <h4 class="caption-title"><a href="http://54.174.162.177/excursions-list.html#">{{accessory.name}}</a><span class="pull-right" align="center">SKU: {{accessory.skuid}}</span></h4>
+                            <h5 class="caption-title-sub"><strong>€12,10</strong> per a person</h5>
+                            <table class="table">
+                                <tbody><tr class="bt0">
+                                    <td class="bt0"><strong>Color: </strong>{{accessory.color}} </td>
+                                    <td class="bt0 bl0"><strong >Retail Price:</strong><span class="tmo-strike"> {{accessory.retail_price}} </span></td>
+                                </tr>
+                                <tr class="bt0">
+                                    <td class="bt0"><strong>Size: </strong>{{accessory.size}} </td>
+                                    <td class="bt0 bl0"><strong>Sale Price:</strong> {{accessory.sale_price}} </td>
+                                </tr>
+                            </tbody></table>
+                            <div class="caption-text" >Description: {{accessory.description | limitTo:stringLimit}}</div>
+
+                            <table class="table">
+                                <tbody><tr>
+                                    <!--<td class="ez-slat-tabled"><i class="fa fa-1x fa-check ez-slat-published" aria-hidden="true"></i> <span class="hidden-xs">PUBLISHED</span></td>
+                                    <td><a href="http://54.174.162.177/excursions-list.html#viewDetailModal" data-toggle="modal" data-target="#viewDetailsModal" class="ez-view-details"> VIEW DETAILS</a></td>-->
+                                    <td class="buttons pull-right"><a class="btn btn-theme" data-toggle="modal" data-target="#bookModal"
+                                           ng-click="addItemsToCart(accessory)">{{buttonNames.cart}}</a></td>
+                                </tr>
+                            </tbody></table>
+                        </div>
+                    </div>
+                </div>
+             </div>
+
+            <div ng-if="accesoryList.length > viewby">
+              <ul style="padding-top:5%;padding-left:5%">
+                  <li class="buttons col-sm-2" ng-hide="currentPage == 1"><a class="btn btn-theme" ng-click="previous(currentPage)">Previous</a></li>
+                  <li class="buttons col-sm-2 pull-right" ng-hide="currentPage*3 > totalItems"><a class="btn btn-theme" ng-click="next(currentPage)">Next</a></li>
+             </ul>
+            </div>
+                <!-- /CONTENT -->
+
+        </div>
+    </section>
+    <!-- /PAGE WITH SIDEBAR -->
+</div>

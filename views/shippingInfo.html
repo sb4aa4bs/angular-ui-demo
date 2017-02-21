@@ -1,0 +1,102 @@
+<div class="wrapper">
+    <!-- CONTENT AREA -->
+    <div class="content-area">
+          <!-- PAGE WITH SIDEBAR -->
+        <section class="page-section with-sidebar sub-page">
+            <div class="container">
+                <div class="row">
+                    <!-- CONTENT -->
+                    <div class="col-md-9 content field-container" id="content">
+                        <h3 class="block-title alt">Shipping Address</h3>
+                        <form class="form-delivery">
+                            <div class="row profile-alert-min">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input name="shipaddress1" ng-model="shippingInfo.shipaddress1" data-toggle="tooltip" class="form-control alt" type="text" placeholder="Shipping Address Line1:*" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input name="shipaddress2" ng-model="shippingInfo.shipaddress2" data-toggle="tooltip" class="form-control alt" type="text" placeholder="Shipping Address Line2:*" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input name="shipcity" ng-model="shippingInfo.shipcity" data-toggle="tooltip" class="form-control alt" type="text" placeholder="City:*" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <select name="shipstate" ng-model="shippingInfo.shipstate" class="form-control alt selectpicker" data-width="100%" data-toggle="tooltip" title="Select" required placeholder="State:*">
+                                            <option>--Select State--</option>
+                                            <option value="AL">AL</option>
+                                            <option value="AK">AK</option>
+                                            <option value="AZ">AZ</option>
+                                            <option value="AR">AR</option>
+                                            <option value="CA">CA</option>
+                                            <option value="CO">CO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input name="shipzip" ng-model="shippingInfo.shipzip" data-toggle="tooltip" class="form-control alt" type="text" placeholder="Zip:*" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="checkbox checkbox-danger pull-left">
+                                        <input id="acceptBilling"  type="checkbox" name="acceptBilling" title="Please accept" data-toggle="tooltip">
+                                            <label style="font-size: small" for="acceptBilling">Use same address for billing</label>
+                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="checkbox checkbox-danger pull-left">
+                                        <input id="acceptE911"  type="checkbox" name="acceptE911" title="Please accept" data-toggle="tooltip">
+                                            <label style="font-size: small" for="acceptE911">Use this address for E911 address</label>
+                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input name="customername" ng-model="shippingInfo.customername" data-toggle="tooltip" class="form-control alt" type="text" placeholder="Name on Card:*" required>
+                                    </div>
+                                </div>
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input name="cardno" ng-model="shippingInfo.cardno" data-toggle="tooltip" class="form-control alt" type="text" placeholder="Enter valid credit card number:*" required>
+                                    </div>
+                                </div>
+                            <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input name="expirydate" ng-model="shippingInfo.expirydate" data-toggle="tooltip" class="form-control alt" type="text" placeholder="Expiry Date:*">
+                                    </div>
+                                </div>
+                            <div class="col-md-2">
+                                    <div class="form-group">
+                                        <input name="cvv" ng-model="shippingInfo.cvv" data-toggle="tooltip" class="form-control alt" type="text" placeholder="CVV:*" required>
+                                    </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <a class="btn btn-theme" data-toggle="modal" data-target="#bookModal" 
+                ng-click="shippingInfoFormSubmit(shippingInfo)">SUBMIT</a>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- /CONTENT -->
+                </div>
+            </div>
+        </section>
+        <!-- /PAGE WITH SIDEBAR -->
+        <!-- PAGE -->
+        <section class="page-section contact dark">
+            <div class="container">
+                <!-- Get in touch -->
+                <!-- /Get in touch -->
+            </div>
+        </section>
+        <!-- /PAGE -->
+    </div>
+    <!-- /CONTENT AREA -->
+</div>

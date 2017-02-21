@@ -1,0 +1,61 @@
+<div class="wrapper">
+    <!-- CONTENT AREA -->
+    <div class="content-area">
+          <!-- PAGE WITH SIDEBAR -->
+        <section class="page-section with-sidebar sub-page">
+            <div class="container">
+                <div class="row">
+                    <!-- CONTENT -->
+                    <div class="col-md-9 content field-container" id="content">
+                        <h3 class="block-title alt">Credit</h3>
+                        
+                        <!--Start of form -->
+                        <form class="form-delivery">
+                            <div class="row profile-alert-min">
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                <input name="customername" type="text" ng-model="creditInfo.customername" data-toggle="tooltip" class="form-control alt"  placeholder="Customer Name:*" ng-required="true">
+                                </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input name="cardno" type="text" ng-model="creditInfo.cardno" data-toggle="tooltip" class="form-control alt"  placeholder="Card Number:*" 
+                                               ng-required="true">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input name="expirydate" type="text" ng-model="creditInfo.expirydate" data-toggle="tooltip" class="form-control alt"  placeholder="Expiry Date:*" ng-required="true">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input name="dateOfBirth" type="text" ng-model="creditInfo.dateOfBirth" data-toggle="tooltip" class="form-control alt"  placeholder="Date of Birth:*" ng-required="true">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-3">
+                                    <a class="btn btn-theme" data-toggle="modal" data-target="#bookModal" 
+                ng-click="creditFormSubmit(creditInfo)">Submit Order</a>
+                            </div>
+                                <div class="col-md-5"></div>
+                        </form>
+                    </div>
+                    <!-- /CONTENT -->
+                </div>
+            </div>
+        </section>
+        <!-- /PAGE WITH SIDEBAR -->
+        <!-- PAGE -->
+        <section class="page-section contact dark">
+            <div class="container">
+                <!-- Get in touch -->
+                <!-- /Get in touch -->
+            </div>
+        </section>
+        <!-- /PAGE -->
+    </div>
+    <!-- /CONTENT AREA -->
+</div>

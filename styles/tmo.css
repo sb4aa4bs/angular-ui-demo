@@ -1,0 +1,82 @@
+.accountbar {
+    height: 60px;
+    max-height: 60px;
+    background:  !important;
+    padding-top: 12px;
+}
+
+
+.tmo-error{
+  color:red;
+  margin-left: 1%;
+}
+
+.tmo-center {
+    position: absolute;    
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -50px;
+}
+
+.tmo-container{
+	width:100%
+}
+
+.tmo-footer {
+    height: 40px;
+    background-color: #5a5a5a;
+    color: #fff;
+    line-height: 40px;
+    white-space: nowrap;
+}
+.tmo-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.tmo-tag {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 1.563rem;
+}
+.tmo-tag-info {
+    background-color: #5bc0de;
+}
+
+.carousel-control  {
+ width:20px; 
+ background: none !important;
+ background-image: none !important;
+ text-shadow: 0px;
+}
+.carousel-control.right {
+ background-image: none !important;
+ background: none !important;
+}
+
+.bg-tmo {
+    background: #E20074 !important;
+}
+
+ .tmo-caption {
+ padding:15px !important;   
+}
+
+.tmo-strike{
+    text-decoration: line-through
+}
+
+.tmo-ez-thumbnail-photo {
+    height: 100px !important;
+    width: auto !important;
+}
