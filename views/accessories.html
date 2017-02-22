@@ -1,10 +1,10 @@
+<tmo-menu></tmo-menu>
 <div style="padding-top:20px;margin-left:300px" ng-init="getAccessories()">
 <form class="form-horizontal" name="feedbackForm" >
     <div class="form-group">
         <label for="searchItems" class="col-sm-2 control-label">Search Items</label>
          <div class="col-sm-4">
           <input type="text" class="form-control" id="searchItems" name="searchItems" placeholder="Search" ng-model="skuId" submit-required="true">
-          <!--<span ng-show="feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine" class="help-block">Your First name is required.</span>-->
             </div>
 
         <div class="buttons col-sm-2"><a class="btn btn-theme" ng-click="getAccessories()">Go</a></div>
@@ -15,46 +15,102 @@
 
 <div ng-if="noAccessories" class="text-center" style="color:#a1b1bc">No Results Found</div>
 <div class="content-area" ng-if="accesoryList.length >0" >
-    <!-- PAGE WITH SIDEBAR -->
+    <!-- SECTION-->
     <section class="page-section with-sidebar sub-page">
         <div class="container">
-            <div class="row"> 
+            <div class="row">
                 <!-- CONTENT -->
                 <div class="col-md-4 content" id="content" ng-repeat="accessory in accesoryList.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
                     <!-- Excursion Listing -->
-                    <div class="thumbnail no-border  no-padding thumbnail-ez-ezd clearfix">
-                        <div class="media">
-                            <a class="media-link" data-gal="prettyPhoto" href="http://54.174.162.177/assets/img/preview/cars/ez-370x220x5.jpg">
-                                <img src="{{accessory.picture}}" class="ez-thumbnail-photo" alt="">
-                                <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
-                            </a>
-                        </div>
-                        <div class="caption tmo-caption">
+                    <div class="thumbnail no-border  no-padding thumbnail-ez-ezd clearfix" ng-init="showDetails=false" >
+                        <div ng-click="showDetails=true;getAccessoryDetails(accessory.id);">
+                            <div class="media">
+                                <a class="media-link" data-gal="prettyPhoto">
+                                    <img src="{{accessory.picture}}" class="ez-thumbnail-photo" alt="">
+                                    <span class="icon-view"><strong><i class="fa fa-eye"></i></strong></span>
+                                </a>
+                            </div>
+                            <div class="caption tmo-caption">
+                                <h4 class="caption-title">{{accessory.name}}<span class="pull-right" align="center">SKU: {{accessory.skuid}}</span></h4>
+                                <table class="table">
+                                    <tbody><tr class="bt0">
+                                        <td class="bt0"><strong>Color: </strong>{{accessory.color}} </td>
+                                        <td class="bt0 bl0"><strong >Retail Price:</strong><span class="tmo-strike"> {{accessory.retail_price}} </span></td>
+                                    </tr>
+                                    <tr class="bt0">
+                                        <td class="bt0"><strong>Size: </strong>{{accessory.size}} </td>
+                                        <td class="bt0 bl0"><strong>Sale Price:</strong> {{accessory.sale_price}} </td>
+                                    </tr>
+                                </tbody></table>
+                                <div class="caption-text ellipsis" >Description: {{accessory.description}}</div>
+                               
+                            </div>
+                          </div>
+                         <table class="table">
+                                    <tbody><tr>
+                                        <td class="buttons pull-right"><a class="btn btn-theme" data-toggle="modal" data-target="#bookModal"
+                                               ng-click="addItemsToCart(accessory)">{{buttonNames.cart}}</a></td>
+                                    </tr>
+                                 </tbody>
+                                </table>
+                    </div>
+                    <!--Modal Window -->
+                    <div class="modal-dialog popOverDetails" tabindex="-1" ng-show="showDetails">
+                    <div class="modal-content">
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="showDetails=false" style="margin-right:15px;margin-top:5px;"><span aria-hidden="true">&times;</span></button>
+                           
+                        <div class="caption">
+                           <div class="row">
+                             <div class="col-md-6">
+                                 <h4 class="caption-title">Name: {{accessoryDetails.name}}</h4>
+                             </div>
+                             <div class="col-md-4">
+                                 <h4 class="caption-title">SKUID # {{accessoryDetails.skuid}}</h4>
+                             </div>
+                           </div>
+                            <div class="row" >
+                                <div class="col-md-2">
+                                    <h4 class="caption-title">
+                                       <img src="{{accessoryDetails.picture}}" class="tmo-ez-thumbnail-photo" alt="">
+                                      </h4>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row" style="margin-top:2%">
+                                      <span class="caption-title" >Vendor : {{accessoryDetails['accessory_detail'].vendor? accessoryDetails['accessory_detail'].vendor:'N/A'}}</span>
 
-                            <h4 class="caption-title"><a href="http://54.174.162.177/excursions-list.html#">{{accessory.name}}</a><span class="pull-right" align="center">SKU: {{accessory.skuid}}</span></h4>
-                            <h5 class="caption-title-sub"><strong>€12,10</strong> per a person</h5>
-                            <table class="table">
-                                <tbody><tr class="bt0">
-                                    <td class="bt0"><strong>Color: </strong>{{accessory.color}} </td>
-                                    <td class="bt0 bl0"><strong >Retail Price:</strong><span class="tmo-strike"> {{accessory.retail_price}} </span></td>
-                                </tr>
-                                <tr class="bt0">
-                                    <td class="bt0"><strong>Size: </strong>{{accessory.size}} </td>
-                                    <td class="bt0 bl0"><strong>Sale Price:</strong> {{accessory.sale_price}} </td>
-                                </tr>
-                            </tbody></table>
-                            <div class="caption-text" >Description: {{accessory.description | limitTo:stringLimit}}</div>
+                                    </div>
+                                    <div class="row">
+                                      <span class="caption-title">Warranty : {{accessoryDetails['accessory_detail'].warranty?accessoryDetails['accessory_detail'].warranty:'N/A'}}</span>
+                                    </div>
 
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="row" style="margin-top:2%">
+                                    <span class="caption-title">Size : {{accessoryDetails.size?accessoryDetails.size:"N/A"}}</span>
+                                  </div>
+                                  <div class="row">
+                                    <span class="caption-title">Color : {{accessoryDetails.color?accessoryDetails.color:"N/A"}}</span>
+                                  </div>
+                                </div>                                
+                                <div class="col-md-2">
+                                   <span class="caption-title">Qty : {{accessoryDetails.quantity}}</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="caption-title"  style="margin-top:5%">Price : {{accessoryDetails['sale_price']}}</span>
+                                </div>
+                            </div>
+                            <div class="caption-text-billing"> </div>
                             <table class="table">
                                 <tbody><tr>
-                                    <!--<td class="ez-slat-tabled"><i class="fa fa-1x fa-check ez-slat-published" aria-hidden="true"></i> <span class="hidden-xs">PUBLISHED</span></td>
-                                    <td><a href="http://54.174.162.177/excursions-list.html#viewDetailModal" data-toggle="modal" data-target="#viewDetailsModal" class="ez-view-details"> VIEW DETAILS</a></td>-->
-                                    <td class="buttons pull-right"><a class="btn btn-theme" data-toggle="modal" data-target="#bookModal"
-                                           ng-click="addItemsToCart(accessory)">{{buttonNames.cart}}</a></td>
+                                    <td class="ez-slat-tabled"><span class="hidden-xs">
+                                      Description: {{accessoryDetails['product_detail']['more_description']?accessoryDetails['accessory_detail']['more_description']:accessoryDetails['description']}}
+                                    </span></td>
                                 </tr>
                             </tbody></table>
-                        </div>
+                       </div>                            
                     </div>
+                </div>
+                    <!--/Modal Window -->
                 </div>
              </div>
 
@@ -68,5 +124,5 @@
 
         </div>
     </section>
-    <!-- /PAGE WITH SIDEBAR -->
+    <!-- /SECTION -->
 </div>

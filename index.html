@@ -8,21 +8,16 @@
     <!-- CSS Global -->
     <link href="./styles/bootstrap.min.css" rel="stylesheet">
     <link href="./styles/bootstrap-select.min.css" rel="stylesheet">
-    <link href="./styles/font-awesome.min.css" rel="stylesheet">
     <link href="./styles/prettyPhoto.css" rel="stylesheet">
-    <link href="./styles/owl.carousel.min.css" rel="stylesheet">
-    <link href="./styles/owl.theme.default.min.css" rel="stylesheet">
-    <link href="./styles/animate.min.css" rel="stylesheet">
     <link href="./styles/swiper.min.css" rel="stylesheet">
     <link href="./styles/jquery-ui.min.css" rel="stylesheet">
-    <link href="./styles/jquery.countdown.css" rel="stylesheet">
     <!-- Theme CSS -->
     <link href="./styles/theme-pink.css" rel="stylesheet">
     <link href="./styles/tmo.css" rel="stylesheet">
     <!-- Head Libs -->
     <script src="js/angular.min.js"></script>
     <script src="js/angular-animate.js"></script>
-	<script src="js/ui-bootstrap-tpls-0.13.4.js"></script>
+	  <script src="js/ui-bootstrap-tpls-0.13.4.js"></script>
     <script src="js/angular-credit-cards.js"></script>
     <script src="app/app.js"></script>
     <!--[if lt IE 9]>
@@ -33,44 +28,9 @@
 
 <body id="home" class="wide" ng-app="tmoproject">
     <!-- WRAPPER -->
-    <div class="wrapper">
-        <!-- HEADER -->
-        <div id="undefined-sticky-wrapper" class="sticky-wrapper" style="height: 84px;"><header class="header fixed">
-            <div class="header-wrapper bg-tmo">
-                <div class="container">
-                    <!-- Logo -->
-                    <div class="logo">
-                        <a href="#welcome"><img src="./images/t-mobile-logo.png" alt="Liberia"></a>
-                    </div>
-                    <!-- /Logo -->
-                    <!-- Mobile menu toggle button -->
-                    <a href="#" class="menu-toggle btn btn-theme-transparent"><i class="fa fa-bars"></i></a>
-                    <!-- /Mobile menu toggle button -->
-                    <!-- Navigation -->
-                    <nav class="navigation closed clearfix swiper-container-vertical swiper-container-free-mode">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide swiper-slide-active">
-                                <!-- navigation menu -->
-                                <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
-                                <ul class="nav sf-menu sf-js-enabled sf-arrows">
-                                    <li><a href="#searchProducts">Phones</a></li>
-                                            <li class="active">
-                                                     <a class="active" href="#searchAccessories">Accesories</a></li>
-                                    <li><a href="#cart">Cart</a></li>
-                                </ul>
-                                <!-- /navigation menu -->
-                            </div>
-                        </div>
-                    </nav>
-                    <!-- /Navigation -->
-                </div>
-            </div>
-        </header></div>
-        <!-- /HEADER -->
+    <div class="wrapper">        
         <!-- CONTENT AREA -->
         <div class="content-area">
-            <!-- PAGE -->
-
              <div ng-view=""></div>
             <!-- /PAGE -->
         </div>
@@ -97,33 +57,21 @@
     <script src="./js/jquery-1.11.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/bootstrap-select.min.js"></script>
-    <script src="./js/superfish.min.js"></script>
-    <script src="./js/jquery.prettyPhoto.js"></script>
-    <script src="./js/owl.carousel.min.js"></script>
-    <script src="./js/jquery.sticky.min.js"></script>
-    <script src="./js/jquery.easing.min.js"></script>
-    <script src="./js/jquery.smoothscroll.min.js"></script>
-    <script src="./js/swiper.jquery.min.js"></script>
-    <script src="./js/moment-with-locales.min.js"></script>
-    <!-- JS Page Level -->
-    <script src="./js/theme.js"></script>
+     <!-- JS Page Level -->
+
     <script src="js/angular-route.min.js"></script>
     <script src="./app/configs.js"></script>
     <script src="./app/constants.js"></script>
     <script src="app/controllers/WelcomeController.js"></script>
-    <script src="app/controllers/SearchController.js"></script>
-    <script src="app/controllers/Hello.js"></script>
-    <script src="app/controllers/pagination.js"></script>
-    <script src="app/service/CartService.js"></script>
-    <script src="app/service/TokenService.js"></script>
     <script src="app/controllers/CartController.js"></script>
      <script src="app/controllers/ProductController.js"></script>
     <script src="app/controllers/AccessoryController.js"></script>
     <script src="app/controllers/PersonalInfoController.js"></script>
-    <script src="app/controllers/ShippingInfoController.js"></script>
-    <script src="app/controllers/CreditController.js"></script>
     <script src="app/controllers/OrderInfoController.js"></script>
+    <script src="app/service/CartService.js"></script>
+    <script src="app/service/TokenService.js"></script>
     <script src="app/directive/TmoMatch.js"></script>
-    
+    <script src="app/directive/TmoHeaderMenu.js"></script>
+    <script src="app/directive/TmoHeader.js"></script>
 </body>
 </html>

@@ -7,18 +7,25 @@ app.controller('AccessoryController',['$scope','$http','$location','cartFactory'
       $scope.itemsPerPage = $scope.viewby;
       $scope.maxSize = 5; //Number of pager buttons to show
       $scope.noResults = false;
-
+      $scope.totalCartSize =  cartFactory.totalCartSize
+      var auth_token = tokenFactory.token();
+      $scope.accessoryDetails = "";                                           
+    //Get all accessories => $http call
     $scope.getAccessories =function(){
       $scope.token = tokenFactory.token();
       console.log('Inside the ProductController::after $scope.token====='+ $scope.token);
 
        var url = SERVER_PORT+SERVICE_URL.ACCESSORY_URL;
        if($scope.skuId != undefined){
-          url = url+$scope.skuId;
+          url = url+"/"+$scope.skuId;
        }
        $http({
         method:'GET',
-        url: url
+        url: url,
+       headers: {
+           "Content-Type": "application/json",
+            "authorization": auth_token
+        }
        }).then(function success(response){
         $scope.accesoryList= response.data;
         $scope.totalItems = $scope.accesoryList.length;
@@ -33,7 +40,20 @@ app.controller('AccessoryController',['$scope','$http','$location','cartFactory'
         });
 
      }
-
+    
+    $scope.getAccessoryDetails = function(accessoryId){
+        cartFactory.getAccessoryDetails(accessoryId).then(function success(response){
+          console.log(response.data);
+          var result = response.data[0];
+           result.quantity = 1;
+           $scope.accessoryDetails = result;
+         },
+         function error(response){
+             console.log('Error ::'+ response);
+         });
+        
+    }
+    
 
      $scope.addItemsToCart =function(itemObj){
        itemObj.isAccessory = true;

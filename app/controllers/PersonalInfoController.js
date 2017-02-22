@@ -2,16 +2,17 @@
 app.controller('PersonalInfoController', ['$rootScope','$scope', '$location','cartFactory', '$http','SERVER_PORT','SERVICE_URL','tokenFactory', function($rootScope,$scope, $location, cartFactory,$http,SERVER_PORT,SERVICE_URL,tokenFactory){
   var auth_token = tokenFactory.token();
     console.info('Inside personalInfoController ===================');
-    
+    $scope.totalCartSize =  cartFactory.totalCartSize
+
     $scope.getCreditratingtypes = function(){
         console.log("Inside PersonalInfoController =>getCreditratingtypes");
         var url = SERVER_PORT+SERVICE_URL.CREDIT_TRATING_TYPES;
-        
+
         $http({
             method:'GET',
             url: url,
             headers:{
-               "authorization":auth_token 
+               "authorization":auth_token
             }
         }).then(function success(response){
                console.log(response.data.message);
@@ -21,8 +22,8 @@ app.controller('PersonalInfoController', ['$rootScope','$scope', '$location','ca
           function error(response){
                console.error('PersonalInfoController->getCreditratingtypes->Error ::'+ response.data);
           })
-    }    
-    
+    }
+
 
     $scope.personalInfoFormSubmit = function(personalInfo) {
         console.info(JSON.stringify(personalInfo));
@@ -38,16 +39,16 @@ app.controller('PersonalInfoController', ['$rootScope','$scope', '$location','ca
         personalInfo['billcity'] = personalInfo['shipcity'];
         personalInfo['billstate'] = personalInfo['shipstate'];
         personalInfo['billzip'] = personalInfo['shipzip'];
-        personalInfo['store'] = "TMOBILE-US"; 
+        personalInfo['store'] = "TMOBILE-US";
         personalInfo['creditreportusagetype'] = personalInfo['creditreportusagetype']['id'];
         cartFactory.personalInfo = personalInfo;
         console.info('From Cart Factory ::'+ JSON.stringify(cartFactory.personalInfo));
         cartFactory.prepareFinalCart(cartFactory.personalInfo);
         var finalCart = cartFactory.getFinalCart();
         console.log('finalCart ::'+ finalCart);
-        
-   
-        
+
+
+
         //submit the call.
            var url = SERVER_PORT+SERVICE_URL.CHECKOUT_URL;
            $http({
@@ -59,15 +60,14 @@ app.controller('PersonalInfoController', ['$rootScope','$scope', '$location','ca
                 "authorization": auth_token
             }
            }).then(function success(response){
-               console.log(response.data.order_id);
-               $scope.orderId = response.data.order_id;
-               cartFactory.orderId = response.data.order_id;
+               console.log(response.data.order_id);             
+               cartFactory.orderId = response.data.order_id;   
                $location.path('/orderConfirm');
           },
           function error(response){
                console.error('ShippingInfoController->shippingInfoFormSubmit->Error ::'+ response.data);
           });
-        $location.path('/welcome');
+        
     }
 
     $scope.gotoShippingInfo = function() {

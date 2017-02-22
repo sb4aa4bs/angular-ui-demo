@@ -1,3 +1,4 @@
+<tmo-menu></tmo-menu>
 <div class="container" ng-init="getProductDetails()">
 
 <div class="thumbnail no-border no-margin no-padding thumbnail-ez-ezd clearfix" ng-repeat= "item in cartItemsDetails" style="margin-top:2%">
@@ -12,7 +13,7 @@
      </div>
    </div>
     <div class="row" >
-        <div class="col-md-1">
+        <div class="col-md-2">
             <h4 class="caption-title">
                <img src="{{item.picture}}" class="tmo-ez-thumbnail-photo" alt="">
               </h4>
@@ -57,9 +58,14 @@
 </div>
     <div class="col-md-12" style="margin-left:65%" class="buttons">&nbsp;</div>
 
+   <div ng-if="cartItemsDetails.length >0">
     <div class="col-md-4" style="margin-left:83%" class="buttons"><Strong>Total Count: {{totalCartAmount}}</Strong></div>
     <div class="col-md-4" style="margin-left:65%" class="buttons">
         <a class="btn btn-theme" data-toggle="modal" data-target="#bookModal"
                 ng-click="checkout(cartItemsDetails)">Checkout</a></div>
+    </div>
+    <div ng-if="cartItemsDetails.length == 0">
+        <div class="noItems">CART EMPTY</div>
+    </div>
     <div class="col-md-4" style="margin-left:65%" class="buttons">&nbsp;</div>
 </div>

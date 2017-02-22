@@ -10,8 +10,11 @@ app.controller('ProductController',['$scope','$http', '$location','tokenFactory'
       $scope.noResults = false;
       $scope.isProduct = true;
       $scope.stringLimit = 50;
-
-    console.log('Inside the ProductController=======================');
+      $scope.showMenu = true;
+      $scope.totalCartSize =  cartFactory.totalCartSize
+      console.log('Inside the ProductController=======================');
+      var auth_token = tokenFactory.token();
+      $scope.productDetails = "";
 
 
     $scope.getproducts =function(){
@@ -19,7 +22,7 @@ app.controller('ProductController',['$scope','$http', '$location','tokenFactory'
         $scope.token = tokenFactory.token();
         console.log('Inside the ProductController::after $scope.token====='+ $scope.token);
 
-       
+
        var url = SERVER_PORT+SERVICE_URL.PRODUCTS_URL;
        var method = 'GET';
 
@@ -30,7 +33,11 @@ app.controller('ProductController',['$scope','$http', '$location','tokenFactory'
 
        $http({
         method:method,
-        url: url
+        url: url,
+        headers: {
+           "Content-Type": "application/json",
+            "authorization": auth_token
+        }
        }).then(function success(response){
         $scope.productList= response.data;
         $scope.totalItems = $scope.productList.length;
@@ -42,8 +49,20 @@ app.controller('ProductController',['$scope','$http', '$location','tokenFactory'
          function error(response){
         });
      } // end of getproducts
+    
+    $scope.getProductDetails = function(productId){        
+       cartFactory.getCartProductDetails(productId).then(function success(response){
+          console.log(response.data);
+          var result = response.data[0];
+          result.quantity = 1;
+           $scope.productDetails = result;
+         },
+         function error(response){
+             console.log('Error ::'+ response);
+         });
+    }
 
-    $scope.addItemsToCart =function(itemObj){        
+    $scope.addItemsToCart =function(itemObj){
           cartFactory.addToCart(itemObj);
           $location.path('/cart');
 
@@ -85,7 +104,4 @@ app.controller('ProductController',['$scope','$http', '$location','tokenFactory'
         }
         console.log('After Removing ==='+ JSON.stringify(itemObj));
     }
-
-
-    $scope.myValue=false;
 }]);

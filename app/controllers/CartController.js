@@ -6,8 +6,11 @@ app.controller('CartController',['$scope','$location','$http','cartFactory',"tok
 
     $scope.cartItemsDetails=[];
     $scope.totalCartAmount = 0;
+    $scope.totalCartSize=0;
     $scope.getProductDetails = function(){
          var currentCartItem = cartFactory.getAllCartItems();
+            cartFactory.totalCartSize = currentCartItem.length;
+            $scope.totalCartSize = currentCartItem.length;
            for(var i =0;i< currentCartItem.length;i++) {
               if(currentCartItem[i].isAccessory){
                    $scope.totalCartAmount = $scope.totalCartAmount + parseFloat(currentCartItem[i]['sale_price']);
@@ -41,10 +44,9 @@ app.controller('CartController',['$scope','$location','$http','cartFactory',"tok
            item["price"] = cartItem["sale_price"];
            item["tax"] = 4;
            items.push(item);
-         });
+         });        
          cartInfo["items"] = items;
-         cartInfo["total"] = $scope.totalCartAmount;
-         //cartFactory.finalCartInfo["cart"] = cartInfo;
+         cartInfo["total"] = $scope.totalCartAmount;         
          cartFactory.setCart(cartInfo);
          console.log("New Token"+JSON.stringify(cartInfo));
         $location.path('/personalInfo');
@@ -52,8 +54,7 @@ app.controller('CartController',['$scope','$location','$http','cartFactory',"tok
 
 
     $scope.buttonNames={
-             "cart":"Add To Cart"
+        "cart":"Add To Cart"
     };
 
-    $scope.myValue=false;
 }])

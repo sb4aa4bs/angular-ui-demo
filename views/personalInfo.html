@@ -1,7 +1,8 @@
+<tmo-menu></tmo-menu>
 <div class="wrapper" >
-    <!-- CONTENT AREA -->    
+    <!-- CONTENT AREA -->
     <div class="content-area">
-          <!-- PAGE WITH SIDEBAR -->
+          <!-- SECTION -->
         <section class="page-section with-sidebar sub-page">
             <div class="container">
                 <div class="row">
@@ -10,66 +11,66 @@
                       <h3 class="block-title alt">Personal Information</h3>
 
                       <!--Start of form -->
-                      <form class="form-delivery" name="shippingInfoForm" novalidate>
-                          <div class="row profile-alert-min">                              
+                      <form class="form-delivery" name="customerInfoForm" novalidate>
+                          <div class="row profile-alert-min">
                               <div class="col-md-6">
                                   <div class="form-group">
-                                      <input name="firstname" type="text" ng-model="shippingInfo.firstname" class="form-control alt"
+                                      <input name="firstname" type="text" ng-model="customerInfo.firstname" class="form-control alt"
                                        ng-required="true" placeholder="First Name:*">
                                       <ul>
-                                        <li ng-show="!shippingInfoForm.firstname.$pristine && shippingInfoForm.firstname.$error.required" class="tmo-error">First name is required.</li>
+                                        <li ng-show="!customerInfoForm.firstname.$pristine && customerInfoForm.firstname.$error.required" class="tmo-error">First name is required.</li>
                                       </ul>
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="form-group">
-                                      <input name="lastname" type="text" ng-model="shippingInfo.lastname" data-toggle="tooltip" class="form-control alt"  placeholder="Last Name:*" required>
+                                      <input name="lastname" type="text" ng-model="customerInfo.lastname" data-toggle="tooltip" class="form-control alt"  placeholder="Last Name:*" required>
                                       <ul>
-                                        <li ng-show="!shippingInfoForm.lastname.$pristine && shippingInfoForm.lastname.$error.required" class="tmo-error">Last name is required.</li>
+                                        <li ng-show="!customerInfoForm.lastname.$pristine && customerInfoForm.lastname.$error.required" class="tmo-error">Last name is required.</li>
                                       </ul>
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="form-group">
-                                      <input name="email" type="email" ng-model="shippingInfo.email" data-toggle="tooltip" class="form-control alt" placeholder="Email Address:*"
+                                      <input name="email" type="email" ng-model="customerInfo.email" data-toggle="tooltip" class="form-control alt" placeholder="Email Address:*"
                                       ng-required="true">
                                         <ul>
-                                          <li ng-show="!shippingInfoForm.email.$pristine && shippingInfoForm.email.$error.required" class="tmo-error">Email Id is required.</li>
-                                          <li ng-show="shippingInfoForm.email.$error.email" class="tmo-error">Not a valid email!</li>
+                                          <li ng-show="!customerInfoForm.email.$pristine && customerInfoForm.email.$error.required" class="tmo-error">Email Id is required.</li>
+                                          <li ng-show="customerInfoForm.email.$error.email" class="tmo-error">Not a valid email!</li>
                                         </ul>
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="form-group">
-                                      <input name="cemail" ng-model="shippingInfo.cemail" type="email" data-toggle="tooltip" tmo-match="shippingInfo.email" class="form-control alt"
+                                      <input name="cemail" ng-model="customerInfo.cemail" type="email" data-toggle="tooltip" tmo-match="customerInfo.email" class="form-control alt"
                                        placeholder="Confirm Email Address:*" ng-required="true">
                                       <ul>
-                                        <li ng-show="!shippingInfoForm.cemail.$pristine && shippingInfoForm.cemail.$error.required" class="tmo-error">Email Id is required.</li>
-                                        <li ng-show="shippingInfoForm.cemail.$error.cemail" class="tmo-error">Not a valid email!</li>
-                                        <li ng-show="shippingInfoForm.cemail.$error.match" class="tmo-error">Emails have to match!</li>
+                                        <li ng-show="!customerInfoForm.cemail.$pristine && customerInfoForm.cemail.$error.required" class="tmo-error">Email Id is required.</li>
+                                        <li ng-show="customerInfoForm.cemail.$error.cemail" class="tmo-error">Not a valid email!</li>
+                                        <li ng-show="customerInfoForm.cemail.$error.match" class="tmo-error">Emails have to match!</li>
                                       </ul>
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="form-group">
-                                      <input name="phone" ng-model="shippingInfo.phone" data-toggle="tooltip" ng-pattern="numberPattern" class="form-control alt"
-                                      type="text" placeholder="Enter Phone Number" ng-required="true" ng-minlength="10" ng-maxlength="10">
+                                      <input name="phone" ng-model="customerInfo.phone" data-toggle="tooltip" ng-pattern="numberPattern" class="form-control alt"
+                                      type="text" placeholder="Enter Phone Number:*" ng-required="true" ng-minlength="10" ng-maxlength="10">
                                       <ul>
-                                        <li ng-show="!shippingInfoForm.phone.$pristine && shippingInfoForm.phone.$error.required" class="tmo-error">Phone Number is required.</li>
-                                        <li ng-show="shippingInfoForm.phone.$error.minlength" class="tmo-error">Phone no not less that 10 char.</li>
-                                        <li ng-show="shippingInfoForm.phone.$error.maxlength" class="tmo-error">Phone no not more than 11 char.</li>
-                                        <li ng-show="shippingInfoForm.phone.$error.pattern" class="tmo-error">Not a Valid Number</li>
+                                        <li ng-show="!customerInfoForm.phone.$pristine && customerInfoForm.phone.$error.required" class="tmo-error">Phone Number is required.</li>
+                                        <li ng-show="customerInfoForm.phone.$error.minlength" class="tmo-error">Phone no not less that 10 char.</li>
+                                        <li ng-show="customerInfoForm.phone.$error.maxlength" class="tmo-error">Phone no not more than 11 char.</li>
+                                        <li ng-show="customerInfoForm.phone.$error.pattern" class="tmo-error">Not a Valid Number</li>
                                       </ul>
 
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="form-group">
-                                    <select name="currentcarrier" ng-model="shippingInfo.currentcarrier" class="form-control alt selectpicker" ng-options="carrier for carrier in currentCarriers" data-width="100%" data-toggle="tooltip" title="Select" ng-required="true">
-                                     <option value="" selected="selected">--Select Carrier*--</option>
+                                    <select name="currentcarrier" ng-model="customerInfo.currentcarrier" class="form-control alt selectpicker" ng-options="carrier for carrier in currentCarriers" data-width="100%" data-toggle="tooltip" title="Select" ng-required="true">
+                                     <option value="" selected="selected">Select Carrier*</option>
                                     </select>
                                     <ul>
-                                    <li ng-show="!shippingInfoForm.currentcarrier.$pristine && shippingInfo.currentcarrier == undefined || shippingInfo.currentcarrier == ''" class="tmo-error">Please select Carriers.</li>
+                                    <li ng-show="!customerInfoForm.currentcarrier.$pristine && customerInfo.currentcarrier == undefined || customerInfo.currentcarrier == ''" class="tmo-error">Please select Carriers.</li>
                                     </ul>
                                   </div>
                               </div>
@@ -83,139 +84,136 @@
                             <div class="row profile-alert-min">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input name="shipaddress1" ng-model="shippingInfo.shipaddress1" data-toggle="tooltip" class="form-control alt" type="text"
+                                        <input name="shipaddress1" ng-model="customerInfo.shipaddress1" data-toggle="tooltip" class="form-control alt" type="text"
                                          placeholder="Shipping Address Line1:*" ng-required="true">
                                          <ul>
-                                           <li ng-show="!shippingInfoForm.shipaddress1.$pristine && shippingInfoForm.shipaddress1.$error.required" class="tmo-error">Shipping Address 1 required.</li>
+                                           <li ng-show="!customerInfoForm.shipaddress1.$pristine && customerInfoForm.shipaddress1.$error.required" class="tmo-error">Shipping Address 1 required.</li>
                                        </ul>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input name="shipaddress2" ng-model="shippingInfo.shipaddress2" data-toggle="tooltip" class="form-control alt" type="text"
+                                        <input name="shipaddress2" ng-model="customerInfo.shipaddress2" data-toggle="tooltip" class="form-control alt" type="text"
                                          placeholder="Shipping Address Line2:*" ng-required="true">
                                          <ul>
-                                           <li ng-show="!shippingInfoForm.shipaddress2.$pristine && shippingInfoForm.shipaddress2.$error.required" class="tmo-error">Shipping Address 2 required.</li>
+                                           <li ng-show="!customerInfoForm.shipaddress2.$pristine && customerInfoForm.shipaddress2.$error.required" class="tmo-error">Shipping Address 2 required.</li>
                                        </ul>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <input name="shipcity" ng-model="shippingInfo.shipcity" data-toggle="tooltip" class="form-control alt" type="text"
+                                        <input name="shipcity" ng-model="customerInfo.shipcity" data-toggle="tooltip" class="form-control alt" type="text"
                                         placeholder="City:*" ng-required="true">
                                         <ul>
-                                          <li ng-show="!shippingInfoForm.shipcity.$pristine && shippingInfoForm.shipcity.$error.required" class="tmo-error">Shipping City required.</li>
+                                          <li ng-show="!customerInfoForm.shipcity.$pristine && customerInfoForm.shipcity.$error.required" class="tmo-error">Shipping City required.</li>
                                       </ul>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                      <select name="shipstate" ng-model="shippingInfo.shipstate" class="form-control alt selectpicker" ng-options="state for state in stateList" data-width="100%" data-toggle="tooltip"
+                                      <select name="shipstate" ng-model="customerInfo.shipstate" class="form-control alt selectpicker" ng-options="state for state in stateList" data-width="100%" data-toggle="tooltip"
                                       title="Select" ng-required="true">
-                                       <option value="" selected="selected">--Select State--</option>
+                                       <option value="" selected="selected">Select State*</option>
                                       </select>
                                       <ul>
-                                        <li ng-show="!shippingInfoForm.shipstate.$pristine && shippingInfo.shipstate == undefined|| shippingInfo.shipstate == ''" class="tmo-error">Shipping State required.</li>
+                                        <li ng-show="!customerInfoForm.shipstate.$pristine && customerInfo.shipstate == undefined|| customerInfo.shipstate == ''" class="tmo-error">Shipping State required.</li>
                                     </ul>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <input name="shipzip" ng-model="shippingInfo.shipzip" ng-pattern="zipPattern" title="" data-toggle="tooltip" class="form-control alt" type="text" placeholder="Zip:*" ng-required="true">
+                                        <input name="shipzip" ng-model="customerInfo.shipzip" ng-pattern="zipPattern" title="" data-toggle="tooltip" class="form-control alt" type="text" placeholder="Zip:*" ng-required="true">
                                         <ul>
-                                          <li ng-show="!shippingInfoForm.shipzip.$pristine && shippingInfoForm.shipzip.$error.required" class="tmo-error">Zip Code required.</li>
-                                          <li ng-show="shippingInfoForm.shipzip.$error.pattern" class="tmo-error">Not a Valid Zip Code</li>
+                                          <li ng-show="!customerInfoForm.shipzip.$pristine && customerInfoForm.shipzip.$error.required" class="tmo-error">Zip Code required.</li>
+                                          <li ng-show="customerInfoForm.shipzip.$error.pattern" class="tmo-error">Not a Valid Zip Code</li>
                                       </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                     <div class="checkbox checkbox-danger pull-left">
-                                        <input id="acceptBilling" ng-model="shippingInfo.acceptBilling" type="checkbox" name="acceptBilling" title="Please accept" data-toggle="tooltip">
+                                        <input id="acceptBilling" ng-model="customerInfo.acceptBilling" type="checkbox" name="acceptBilling" title="Please accept" data-toggle="tooltip">
                                             <label style="font-size: small" for="acceptBilling">Use same address for billing</label>
                                     </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="checkbox checkbox-danger pull-left">
 
-                                    <input id="acceptE911" ng-model="shippingInfo.acceptE911" type="checkbox" name="acceptE911" title="Please accept" data-toggle="tooltip">
+                                    <input id="acceptE911" ng-model="customerInfo.acceptE911" type="checkbox" name="acceptE911" title="Please accept" data-toggle="tooltip">
                                         <label style="font-size: small" for="acceptE911">Use this address for E911 address</label>
                                 </div>
                             </div>
                            <div class="col-md-12">
                            <h3 class="block-title alt">Card Information</h3>
                           </div>
-                           
-                          
+
+
                             <div class="col-md-6">
                                     <div class="form-group">
-                                        <input name="customername" ng-model="shippingInfo.customername" data-toggle="tooltip" class="form-control alt" type="text" placeholder="Name on Card:*"
+                                        <input name="customername" ng-model="customerInfo.customername" data-toggle="tooltip" class="form-control alt" type="text" placeholder="Name on Card:*"
                                         ng-required="true">
 
                                           <ul>
-                                            <li ng-show="!shippingInfoForm.customername.$pristine && shippingInfoForm.customername.$error.required" class="tmo-error">Customer name required.</li>
+                                            <li ng-show="!customerInfoForm.customername.$pristine && customerInfoForm.customername.$error.required" class="tmo-error">Customer name required.</li>
                                         </ul>
                                     </div>
                                 </div>
                             <div class="col-md-6">
                                     <div class="form-group">
-                                        <!-- <input name="cardno" ng-model="shippingInfo.cardno" data-toggle="tooltip" ng-pattern="/^[0-9]+$/" ng-minlength="15"  maxlength="19" class="form-control alt" type="text" placeholder="Enter valid credit card number:*"
-                                        ng-required="true"> -->
-                                        <input type="text" id="cardno" placeholder="Card Number:*" cc-number cc-eager-type name="cardno" class="form-control alt" ng-model="shippingInfo.cardno" ng-required="true">
+                                        <input type="text" id="cardno" placeholder="Card Number:*" cc-number cc-eager-type name="cardno" class="form-control alt" ng-model="customerInfo.cardno" ng-required="true">
                                         <ul>
-                                          <li ng-show="shippingInfoForm.cardno.$error.minlength" class="tmo-error">Credit card number must be 15-19 digits</li>
-                                          <li ng-show="shippingInfoForm.cardno.$error.pattern" class="tmo-error">Credit card number must consist of only numbers</li>
-                                          <li ng-show="!shippingInfoForm.cardno.$pristine && !shippingInfoForm.cardno.$valid" class="tmo-error">Credit card number must be a valid Amex, Visa, Discover, or Master Card</li>
-                                          <li ng-show="!shippingInfoForm.cardno.$pristine &&  shippingInfoForm.cardno.$error.required" class="tmo-error">Credit card number required</li>
+                                          <li ng-show="customerInfoForm.cardno.$error.minlength" class="tmo-error">Credit card number must be 15-19 digits</li>
+                                          <li ng-show="customerInfoForm.cardno.$error.pattern" class="tmo-error">Credit card number must consist of only numbers</li>
+                                          <li ng-show="!customerInfoForm.cardno.$pristine && !customerInfoForm.cardno.$valid" class="tmo-error">Credit card number must be a valid Amex, Visa, Discover, or Master Card</li>
+                                          <li ng-show="!customerInfoForm.cardno.$pristine &&  customerInfoForm.cardno.$error.required" class="tmo-error">Credit card number required</li>
                                        </ul>
                                     </div>
                                 </div>
                             <div class="col-md-4">
                                     <div class="form-group row" cc-exp>
-                                        <!-- <input name="expirydate" ng-model="shippingInfo.expirydate" data-toggle="tooltip" class="form-control alt" type="text" placeholder="Expiry Date:*"> -->
                                         <div class="col-xs-4">
-                                        <input placeholder="MM*" type="text" class="form-control alt" cc-exp-month name="ccExpMonth" ng-model="shippingInfo.expirymonth">
+                                        <input placeholder="MM*" type="text" class="form-control alt" cc-exp-month name="ccExpMonth" ng-model="customerInfo.expirymonth">
 
                                       </div>
 
                                       <div class="col-xs-4">
-                                        <input placeholder="YY*" type="text" class="form-control alt" cc-exp-year name="ccExpYear" ng-model="shippingInfo.expiryyear">
+                                        <input placeholder="YY*" type="text" class="form-control alt" cc-exp-year name="ccExpYear" ng-model="customerInfo.expiryyear">
                                       </div>
                                     </div>
                                     <ul>
-                                      <li ng-show="(!shippingInfoForm.ccExpMonth.$pristine && shippingInfoForm.ccExpYear.$pristine) && !shippingInfoForm.ccExpMonth.$valid || !shippingInfoForm.ccExpYear.$valid" class="tmo-error">Enter Valid Month and year</li>
+                                      <li ng-show="(!customerInfoForm.ccExpMonth.$pristine && customerInfoForm.ccExpYear.$pristine) && !customerInfoForm.ccExpMonth.$valid || !customerInfoForm.ccExpYear.$valid" class="tmo-error">Enter Valid Month and year</li>
                                   </ul>
                                 </div>
                             <div class="col-md-2">
                                     <div class="form-group">
-                                        <input name="cvv" ng-model="shippingInfo.cvv" ng-pattern="/^[0-9]+$/" ng-minlength="3" maxlength="4" data-toggle="tooltip" class="form-control alt" type="text" placeholder="CVV:*"
+                                        <input name="cvv" ng-model="customerInfo.cvv" ng-pattern="/^[0-9]+$/" ng-minlength="3" maxlength="4" data-toggle="tooltip" class="form-control alt" type="text" placeholder="CVV:*"
                                         ng-required="true">
                                         <ul>
-                                          <li ng-show="shippingInfoForm.cvv.$error.pattern" class="tmo-error">Security code must contain only numbers</li>
-                                          <li ng-show="shippingInfoForm.cvv.$error.minlength" class="tmo-error">Security code must be 3-4 digits</li>
-                                          <li ng-show="!shippingInfoForm.cvv.$pristine && shippingInfoForm.cvv.$error.required" class="tmo-error">Security code required</li>
+                                          <li ng-show="customerInfoForm.cvv.$error.pattern" class="tmo-error">Security code must contain only numbers</li>
+                                          <li ng-show="customerInfoForm.cvv.$error.minlength" class="tmo-error">Security code must be 3-4 digits</li>
+                                          <li ng-show="!customerInfoForm.cvv.$pristine && customerInfoForm.cvv.$error.required" class="tmo-error">Security code required</li>
                                         </ul>
                                     </div>
                             </div>
-                            <div class="col-md-6">                                                                          
-                                <select name="creditreportusagetype" ng-model="shippingInfo.creditreportusagetype" class="form-control alt selectpicker" data-ng-options="creditTratingType.id for creditTratingType in creditTratingTypes track by creditTratingType.id"   data-width="100%" data-toggle="tooltip" title="Select" ng-required="true">
-                                 <option value="" selected="selected">--Select CreditTratingTypes*--</option>
+                            <div class="col-md-6">
+                                <select name="creditreportusagetype" ng-model="customerInfo.creditreportusagetype" class="form-control alt selectpicker" data-ng-options="creditTratingType.id for creditTratingType in creditTratingTypes track by creditTratingType.id"   data-width="100%" data-toggle="tooltip" title="Select" ng-required="true">
+                                 <option value="" selected="selected">Select Credit Rating*</option>
                                 </select>
                                 <ul>
-                                <li ng-show="!shippingInfoForm.creditreportusagetype.$pristine && shippingInfo.creditreportusagetype == undefined || shippingInfo.creditreportusagetype == ''" class="tmo-error">Please select CreditTrating Types.</li>
+                                <li ng-show="!customerInfoForm.creditreportusagetype.$pristine && customerInfo.creditreportusagetype == undefined || customerInfo.creditreportusagetype == ''" class="tmo-error">Please select Credit Rating.</li>
                                 </ul>
-                                    
+
                             </div>
-                          
+
                             <div class="col-md-12">
                                   <div class="checkbox checkbox-danger pull-left">
-                                       <input id="accept" ng-model="shippingInfo.acceptInfo" type="checkbox" name="accept" title="Please accept" data-toggle="tooltip" ng-required="true">
+                                       <input id="accept" ng-model="customerInfo.acceptInfo" type="checkbox" name="accept" title="Please accept" data-toggle="tooltip" ng-required="true">
                                            <label style="font-size: small" for="accept">By checking this box, I agree that T-Mobile, or others acting on its behalf, may call or text me at the number provided above in order to complete this order, and that they may use an autodialer to do so. I understand that my agreement is not a condition of purchasing any goods or services.</label>
                                    </div>
                                    <div class="col-md-4"></div>
                                    <div class="col-md-12">
                                        <a class="btn btn-theme" data-toggle="modal" data-target="#bookModal"
-                                       ng-click="personalInfoFormSubmit(shippingInfo)" ng-disabled="shippingInfoForm.$invalid" >Next</a>
+                                       ng-click="personalInfoFormSubmit(customerInfo)" ng-disabled="customerInfoForm.$invalid" >Next</a>
                                    </div>
                                    <div class="col-md-5"></div>
                             </div>
@@ -225,15 +223,7 @@
                 </div>
             </div>
         </section>
-        <!-- /PAGE WITH SIDEBAR -->
-        <!-- PAGE -->
-        <section class="page-section contact dark">
-            <div class="container">
-                <!-- Get in touch -->
-                <!-- /Get in touch -->
-            </div>
-        </section>
-        <!-- /PAGE -->
+        <!-- /SECTION -->
     </div>
     <!-- /CONTENT AREA -->
 </div>
